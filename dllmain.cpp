@@ -1,6 +1,7 @@
 #include "includes.h"
 #include <iostream>
 #include <vector>
+#include "drawing.h"
 
 // data
 void* d3d9Device[119];
@@ -17,7 +18,7 @@ void APIENTRY hkEndScene(LPDIRECT3DDEVICE9 o_pDevice) {
 	// drawing stuff
 
 	std::vector<Vec3> targets;
-	for (int i = 1; i < 12; i++)
+	for (int i = 1; i < 32; i++)
 	{
 		uintptr_t curEnt = *(uintptr_t*)(0x18E73C0 + (i * 0x88)); // loops the entity list
 		if (!curEnt) continue;
@@ -28,24 +29,25 @@ void APIENTRY hkEndScene(LPDIRECT3DDEVICE9 o_pDevice) {
 		targets.push_back(*(Vec3*)(curEnt + 0x154));
 
 		D3DCOLOR color;
-		color = D3DCOLOR_ARGB(255, 255, 255, 255); // The line color
+		color = D3DCOLOR_ARGB(255, 255, 255, 255); // line color
+		
+		D3DCOLOR colorL;
+		colorL = D3DCOLOR_ARGB(255, 255, 0, 0);// box color
 
-		Vec2 entPos2D;
-		Vec2 head = *(Vec2*)(curEnt + 0x154);
-		Vec2 foot = *(Vec2*)(curEnt + 0x18);
+		Vec2 entPos2D, entHead2D;
+
 
 		Vec3 feet_pos = *(Vec3*)(curEnt + 0x18);
 		Vec3 head_pos = *(Vec3*)(curEnt + 0x154);
+		head_pos.x -= 10;
+		head_pos.y -= 10;
 		// snapline
 		if (hack->WorldToScreen(feet_pos, entPos2D)) {
-			DrawLine(entPos2D.x, entPos2D.y, windowWidth / 2, windowHeight, 2, color); // draws the line using world to screen
-			if (hack->WorldToScreen(head_pos, entPos2D)) {
-				DrawEspBox2D(head, foot, 2, color);
-			}
-				
-
+			DrawLine(entPos2D.x, entPos2D.y, windowWidth / 2, 1000, 2, color); // draws the line using world to screen
 		}
-
+			if (hack->WorldToScreen(head_pos, entHead2D)) {
+				 DrawEspBox2D(entPos2D, entHead2D, 2, colorL);
+			}
 		// call og function
 		oEndScene(pDevice);
 	}
