@@ -1,1 +1,27 @@
-﻿  Dummy.vcxproj -> C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\Debug\Dummy.dll
+﻿  dllmain.cpp
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\dllmain.cpp(49,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\dllmain.cpp(49,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  drawing.cpp
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(16,28): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(16,24): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(17,28): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(17,24): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(18,18): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(26,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(26,28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(26,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(26,14): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(30,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(55,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(55,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(55,26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(55,19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(58,26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(58,23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(58,20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\drawing.cpp(58,17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  dx.cpp
+  hack.cpp
+  hook.cpp
+  Generating Code...
+  Dummy.vcxproj -> C:\Users\robwe\OneDrive\Desktop\My cheats\WaW D3D9 ESP\d3d9 esp1z1 esp video 2 - snaplines\Dummy\Debug\Dummy.dll

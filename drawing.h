@@ -9,3 +9,4 @@ void DrawLine(Vec2 src, Vec2 dst, int thickness, D3DCOLOR color);
 
 void DrawEspBox2D(Vec2 top, Vec2 bot, int thickness, D3DCOLOR color);
 
+void DrawText(const char* text, float x, float y, D3DCOLOR color);

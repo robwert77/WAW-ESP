@@ -7,6 +7,7 @@
 
 #define ABS(x) ((x < 0) ? (-x) : (x))
 
+
 struct Vec2 {
 	float x, y;
 };
@@ -49,8 +50,18 @@ public:
 	EntList* entList;
 	float viewMatrix[16];
 
+	ID3DXFont* FontF;
+
 	void Init();
 	void Update();
 	bool CheckValidEnt(Ent* ent);
 	bool WorldToScreen(Vec3 pos, Vec2& screen);
+
+	struct Settings {
+		bool snaplines = true;
+		bool box2D = true;
+		bool statusText = true;
+	}settings;
 };
+
+

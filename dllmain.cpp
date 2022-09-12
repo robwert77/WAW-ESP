@@ -1,7 +1,8 @@
 #include "includes.h"
 #include <iostream>
 #include <vector>
-#include "drawing.h"
+#include <string.h>
+#include <sstream>
 
 // data
 void* d3d9Device[119];
@@ -29,7 +30,7 @@ void APIENTRY hkEndScene(LPDIRECT3DDEVICE9 o_pDevice) {
 		targets.push_back(*(Vec3*)(curEnt + 0x154));
 
 		D3DCOLOR color;
-		color = D3DCOLOR_ARGB(255, 255, 255, 255); // line color
+		color = D3DCOLOR_ARGB(255, 255, 0, 0); // line color
 		
 		D3DCOLOR colorL;
 		colorL = D3DCOLOR_ARGB(255, 255, 0, 0);// box color
@@ -39,17 +40,29 @@ void APIENTRY hkEndScene(LPDIRECT3DDEVICE9 o_pDevice) {
 
 		Vec3 feet_pos = *(Vec3*)(curEnt + 0x18);
 		Vec3 head_pos = *(Vec3*)(curEnt + 0x154);
-		head_pos.x -= 10;
-		head_pos.y -= 10;
-		// snapline
+		
+		head_pos.x -= 14;
+		head_pos.y -= 14;
+
 		if (hack->WorldToScreen(feet_pos, entPos2D)) {
-			DrawLine(entPos2D.x, entPos2D.y, windowWidth / 2, 1000, 2, color); // draws the line using world to screen
+			if (hack->settings.snaplines) {
+				DrawLine(entPos2D.x, entPos2D.y, windowWidth / 2, 1000, 1, color); // draws the line using world to screen
+			}
 		}
 			if (hack->WorldToScreen(head_pos, entHead2D)) {
-				 DrawEspBox2D(entPos2D, entHead2D, 2, colorL);
+				if (hack->settings.box2D) {
+					DrawEspBox2D(entPos2D, entHead2D, 2, colorL);
+				}
+
 			}
-		// call og function
-		oEndScene(pDevice);
+
+			if (hack->settings.statusText) {
+				std::stringstream s1, s2;
+				s1 << health;
+				std::string t1 = "Health: " + s1.str();
+				char* healthMsg = (char*)t1.c_str();
+				DrawText(healthMsg, entPos2D.x, entPos2D.y, D3DCOLOR_ARGB(255, 255, 255, 255));
+			}
 	}
 
 	// crosshair
