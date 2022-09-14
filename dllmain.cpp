@@ -3,6 +3,8 @@
 #include <vector>
 #include <string.h>
 #include <sstream>
+#include <math.h>
+
 
 // data
 void* d3d9Device[119];
@@ -17,7 +19,7 @@ void APIENTRY hkEndScene(LPDIRECT3DDEVICE9 o_pDevice) {
 		pDevice = o_pDevice;
 
 	// drawing stuff
-
+	DrawText("First ESP!", windowWidth / 2, windowHeight - 20, D3DCOLOR_ARGB(255, 255, 255, 255));
 	std::vector<Vec3> targets;
 	for (int i = 1; i < 32; i++)
 	{
@@ -25,8 +27,13 @@ void APIENTRY hkEndScene(LPDIRECT3DDEVICE9 o_pDevice) {
 		if (!curEnt) continue;
 		uintptr_t isZombie = *(uintptr_t*)(curEnt + 0x4);
 		if (isZombie < 2) continue;
-		int health = *(int*)(curEnt + 0x1C8); // specfies health and adds the offset
-		if (health < 0) continue; // health check for valid ent
+		int healthL = *(int*)(curEnt + 0x1C8);
+		float health = *(float*)(curEnt + 0x1C8);
+		float round_health = *(float*)(curEnt + 0x1CC);// specfies health and adds the offset
+		if (isnan(health)) continue;
+
+	
+
 		targets.push_back(*(Vec3*)(curEnt + 0x154));
 
 		D3DCOLOR color;
@@ -41,8 +48,8 @@ void APIENTRY hkEndScene(LPDIRECT3DDEVICE9 o_pDevice) {
 		Vec3 feet_pos = *(Vec3*)(curEnt + 0x18);
 		Vec3 head_pos = *(Vec3*)(curEnt + 0x154);
 		
-		head_pos.x -= 14;
-		head_pos.y -= 14;
+		head_pos.x -= 15;
+		head_pos.y -= 15;
 
 		if (hack->WorldToScreen(feet_pos, entPos2D)) {
 			if (hack->settings.snaplines) {
@@ -52,14 +59,33 @@ void APIENTRY hkEndScene(LPDIRECT3DDEVICE9 o_pDevice) {
 			if (hack->WorldToScreen(head_pos, entHead2D)) {
 				if (hack->settings.box2D) {
 					DrawEspBox2D(entPos2D, entHead2D, 2, colorL);
+					
+					int height = ABS(entPos2D.y - entHead2D.y);
+					int dX = (entPos2D.x - entHead2D.x);
+
+					float healthPerc = health / round_health;  // this has to be an int
+
+					Vec2 botHealth, topHealth;
+
+					float healthHeight = height * healthPerc;
+
+					botHealth.y = entPos2D.y;
+
+					botHealth.x = entPos2D.x - (height / 4) - 8;
+
+					topHealth.y = entHead2D.y + height - healthHeight;
+
+					topHealth.x = entPos2D.x - (height / 4) - 8 - (dX * healthPerc);
+
+					DrawLine(botHealth, topHealth, 1, D3DCOLOR_ARGB(255, 46, 139, 87));
 				}
 
 			}
 
 			if (hack->settings.statusText) {
 				std::stringstream s1, s2;
-				s1 << health;
-				std::string t1 = "Health: " + s1.str();
+				s1 << healthL;
+				std::string t1 = "HP: " + s1.str();
 				char* healthMsg = (char*)t1.c_str();
 				DrawText(healthMsg, entPos2D.x, entPos2D.y, D3DCOLOR_ARGB(255, 255, 255, 255));
 			}
